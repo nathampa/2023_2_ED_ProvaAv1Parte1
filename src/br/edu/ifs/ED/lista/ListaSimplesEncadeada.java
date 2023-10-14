@@ -127,14 +127,14 @@ public class ListaSimplesEncadeada<T extends Comparable<T>> extends Lista<T> {
 
     @Override
     public int compareTo(Lista<T> item) {
-        //terminar
+        //terminarr
         return 0;
     }
 
 	@Override
 	public T[] TransformarEmVetor() {
         No<T> atual = this.primeiro;
-        //terminar
+        //terminarr
 
         throw new UnsupportedOperationException("Não implementado 'TransformarEmVetor'");
 	}
