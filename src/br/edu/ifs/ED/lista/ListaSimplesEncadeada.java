@@ -127,16 +127,58 @@ public class ListaSimplesEncadeada<T extends Comparable<T>> extends Lista<T> {
 
     @Override
     public int compareTo(Lista<T> item) {
-        //terminarrr
+        No<T> atualPrimeira = this.primeiro;
+        No<T> atualSegunda = item.getPrimeiro();
+
+        while (atualPrimeira != null && atualSegunda != null){
+            int resultado = atualPrimeira.getElemento().compareTo(atualSegunda.getElemento());
+            if (resultado != 0){
+                return resultado;
+            }
+            atualPrimeira = atualPrimeira.getProximo();
+            atualSegunda = atualSegunda.getProximo();
+        }
+
+        if (atualPrimeira != null){
+            return 1;
+        } else if (atualSegunda != null){
+            return -1;
+        }
         return 0;
+    }
+
+    private int transformarRecursivo(No<T> atual, T[] vetor, int i){
+        if (atual == null){
+            return i;
+        }
+        vetor[i] = atual.getElemento();
+        return transformarRecursivo(atual.getProximo(), vetor, i + 1);
     }
 
 	@Override
 	public T[] TransformarEmVetor() {
-        No<T> atual = this.primeiro;
-        //terminarrr
+        if (getTamanho() == 0){
+            return (T[]) new Object[0];
+        }
+        T[] vetor = (T[]) new Comparable[getTamanho()];
+        transformarRecursivo(this.primeiro, vetor, 0);
+        return vetor;
 
-        throw new UnsupportedOperationException("Não implementado 'TransformarEmVetor'");
+
+
+
+        /*T[] vetor = (T[]) new Comparable[getTamanho()];
+        No<T> atual = this.primeiro;
+        int i = 0;
+
+        while (atual != null){
+            vetor[i] = atual.getElemento();
+            i++;
+            atual = atual.getProximo();
+        }
+        return vetor;*/
+
+        //throw new UnsupportedOperationException("Não implementado 'TransformarEmVetor'");
 	}
 
 

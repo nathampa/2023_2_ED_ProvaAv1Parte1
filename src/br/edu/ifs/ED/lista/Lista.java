@@ -1,6 +1,31 @@
 package br.edu.ifs.ED.lista;
 
 public abstract class Lista<T extends Comparable<T>> implements Comparable<Lista<T>> {
+
+    private No<T> primeiro;
+    private No<T> ultimo;
+    private int tamanho;
+
+    public No<T> getPrimeiro() {
+        return this.primeiro;
+    }
+
+    public void setPrimeiro(No<T> primeiro) {
+        this.primeiro = primeiro;
+    }
+
+    public No<T> getUltimo() {
+        return this.ultimo;
+    }
+
+    public void setUltimo(No<T> ultimo) {
+        this.ultimo = ultimo;
+    }
+
+    public Lista(){
+        this.tamanho = 0;
+    }
+
     /**
      * Adiciona um elemento no final da lista
      * @param elemento
